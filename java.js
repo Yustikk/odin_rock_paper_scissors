@@ -116,4 +116,29 @@ function playGame(n) {
 
 
 
-playGame(5);
+// let button
+// let buttons=document.querySelectorAll("button");
+// buttons.forEach( (button) => button.addEventListener("click",(e) => 
+// {
+//     PlayRound(e.target,getComputerChoice)
+// }
+
+// )) //why does this work and the other  doesnt ;-;
+
+let button
+let buttons=document.querySelectorAll("button");
+buttons.forEach( (button) => button.addEventListener("click",PlayRound(button.id,getComputerChoice)))
+
+
+
+
+//WORKSSSSSSSS
+// let button
+// let buttons=document.querySelectorAll("button");
+// buttons.forEach( (button) => button.addEventListener("click",(e) => 
+// {
+//     let target=e.target
+//     console.log(target.id)
+// }
+
+// ))
