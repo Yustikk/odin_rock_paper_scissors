@@ -5,22 +5,16 @@ function getComputerChoice()
     let a=Math.random();
     if(a<=0.33)
     {
-        return "rock";
+        return "ROCK";
     }
     else if(a>=0.66)
     {
-        return "paper";
+        return "PAPER";
     }
     else
     {
-        return "scissors";
+        return "SCISSORS";
     }
-}
-
-function getHumanChoice()
-{
-    let answer = prompt("Rock, Paper, Scissors!","scissors");
-    return answer;
 }
 
 
@@ -28,9 +22,8 @@ function PlayRound(humanChoice,machineChoice)
 {
     
     
-    humanChoice= getHumanChoice().toUpperCase(); //i messed up by not adding ()!!!!!!
+    
     console.log("You chose: "+humanChoice+"!");
-    machineChoice= getComputerChoice().toUpperCase();
     console.log("Your enemy chose: "+machineChoice+"!");
 
     if(humanChoice=="SCISSORS")
@@ -116,18 +109,21 @@ function playGame(n) {
 
 
 
-// let button
-// let buttons=document.querySelectorAll("button");
-// buttons.forEach( (button) => button.addEventListener("click",(e) => 
-// {
-//     PlayRound(e.target,getComputerChoice)
-// }
-
-// )) //why does this work and the other  doesnt ;-;
-
 let button
 let buttons=document.querySelectorAll("button");
-buttons.forEach( (button) => button.addEventListener("click",PlayRound(button.id,getComputerChoice)))
+buttons.forEach( (button) => button.addEventListener("click",(e) => 
+{
+    let targett=e.target
+    let choice=targett.id
+    PlayRound(choice,getComputerChoice())
+}
+
+)) //why does this work and the other  doesnt ;-;
+
+//DONT WORK
+// let button
+// let buttons=document.querySelectorAll("button");
+// buttons.forEach( (button) => button.addEventListener("click",PlayRound(button.id,getComputerChoice)))
 
 
 
