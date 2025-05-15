@@ -17,9 +17,53 @@ function getComputerChoice()
     }
 }
 
+function win()
+{
+    let a=document.querySelector("#Result");
+    let b=document.createElement("p");
+    b.innerText="YOU WON";
+    b.id="won";
+    b.color="green";
+    a.appendChild(b);
+    humanScore++;
+}
+
+function lose()
+{
+    let a=document.querySelector("#Result");
+    let b=document.createElement("p");
+    b.innerText="YOU LOST";
+    b.id="won";
+    b.color="red";
+    a.appendChild(b);
+    computerScore++;
+}
+function draw()
+{
+    let a=document.querySelector("#Result");
+    let b=document.createElement("p");
+    b.innerText="DRAW";
+    b.id="won";
+    a.appendChild(b);
+}
+
+function showScore()
+{
+    a=document.querySelector("#score");
+    if(humanScore>computerScore)
+        a.style.color="green";
+    else
+        a.style.color="red";
+    a.innerText=`Current Score: ${humanScore} VS ${computerScore}`
+}
+
 
 function PlayRound(humanChoice,machineChoice)
 {
+    let a=document.querySelector("#Result")
+    
+    a.innerText=`Your enemy chose: ${machineChoice}`;
+    
     
     
     
@@ -31,15 +75,13 @@ function PlayRound(humanChoice,machineChoice)
         switch (machineChoice)
         {
             case "SCISSORS":
-                console.log("DRAW!");
+                draw()
                 break;
             case "PAPER":
-                console.log("YOU WON!");
-                humanScore++;
+                win();
                 break;
             case "ROCK":
-                console.log("YOU LOST :(");
-                computerScore++;
+                lose()
                 break;
             default:
             break;
@@ -49,13 +91,13 @@ function PlayRound(humanChoice,machineChoice)
         switch (machineChoice)
         {
             case "SCISSORS":
-                console.log("YOU WON!"); humanScore++;
+                win();
                 break;
             case "PAPER":
-                console.log("YOU LOST :("); computerScore++;
+                lose()
                 break;
             case "ROCK":
-                console.log("DRAW!");
+                draw()
                 break;
             default:
             break;
@@ -66,59 +108,90 @@ function PlayRound(humanChoice,machineChoice)
         switch (machineChoice)
         {
             case "SCISSORS":
-                console.log("YOU LOST :("); computerScore++;
+                lose()
                 break;
             case "PAPER":
-                console.log("DRAW!");
-                
+                draw()                
                 break;
             case "ROCK":
-                console.log("YOU WON!"); humanScore++;
+                win();
                 break;
             default:
             break;
         }
     }
+    showScore();
+    if(humanScore==5 || computerScore==5)
+    {
+        showScore();
+        getResult()
+    }
 
+}
+
+
+function getResult()
+{
+    a=document.querySelector("#Result");
+        a.classList.toggle="result"
+         if(a) a.innerText=" ";
+        if(humanScore===5)
+            a.innerText="You Won!!! Congrats! press any button to start again"
+        else
+            a.innerText="You Lost!! :( press any button to start again"
+        humanScore=0;
+        computerScore=0;
     
-
 }
-
-function playGame(n) {
-    for(let i=0;i<n;i++)
-    {
-        console.log("Your score: "+humanScore);
-        console.log("Enemy score: "+computerScore);
-        PlayRound(getHumanChoice,getComputerChoice);
-    }
-
-    if(humanScore>computerScore)
-    {
-        console.log("YOU WON!");
-
-    }else if(humanScore<computerScore)
-    {
-        console.log("You lost!");
-    }
-    else
-    {
-        console.log("DRAW!");
-    }
-}
+//GETTING THE BUTTONS TO WORK
 
 
 
-
-let button
 let buttons=document.querySelectorAll("button");
 buttons.forEach( (button) => button.addEventListener("click",(e) => 
 {
+    buttons.forEach((button1) => button1.style.background="")
+    button.style.background="gray";
+    let a=document.querySelector("#won");
+    if(a)
+    {
+        a.remove();  //thank you chat gpt gods i was complicating it so bad
+        
+    }
     let targett=e.target
-    let choice=targett.id
-    PlayRound(choice,getComputerChoice())
-}
+        let choice=targett.id
+    if(!(humanScore==5 || computerScore==5))
+    {
+        
+        PlayRound(choice,getComputerChoice())
+    }
+    else
+    {
+        
+        
+    }
 
+//i made a lot of logic mistakes because i was tired and frustrated, such as showing the score before its updated
+//which led to the maxx score being 4, and instead of  fixing the core problem, i made the limit be 6 which broke 
+//the logic even further. As such I need to learn to be patient with myself and plan out things like i normally do
+//Plus i havent been committing at all!!!!
+
+    
+    
+}
 )) //why does this work and the other  doesnt ;-;
+
+
+//another option:
+// function F(buttonId) {
+//       console.log("Button clicked:", buttonId); 
+// const buttonIds = ["btn1", "btn2", "btn3"];
+
+//     buttonIds.forEach(id => {
+//       const button = document.getElementById(id);
+//       button.addEventListener("click", function() {
+//         F(id); 
+
 
 //DONT WORK
 // let button
@@ -139,3 +212,4 @@ buttons.forEach( (button) => button.addEventListener("click",(e) =>
 
 // ))
 //
+

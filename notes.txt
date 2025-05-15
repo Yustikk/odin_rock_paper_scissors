@@ -1,0 +1,33 @@
+//i made a lot of logic mistakes because i was tired and frustrated, such as showing the score before its updated
+//which led to the maxx score being 4, and instead of  fixing the core problem, i made the limit be 6 which broke 
+//the logic even further. As such I need to learn to be patient with myself and plan out things like i normally do
+//Plus i havent been committing at all!!!!
+
+
+
+BUTTONS GETTING EVENTLISTENERS=====================================================
+//WORKSSSSSSSS
+// let button
+// let buttons=document.querySelectorAll("button");
+// buttons.forEach( (button) => button.addEventListener("click",(e) => 
+// {
+//     let target=e.target
+//     console.log(target.id)
+// }
+
+// ))
+//
+
+
+//another option:
+// function F(buttonId) {
+//       console.log("Button clicked:", buttonId); 
+// const buttonIds = ["btn1", "btn2", "btn3"];
+
+//     buttonIds.forEach(id => {
+//       const button = document.getElementById(id);
+//       button.addEventListener("click", function() {
+//         F(id); })})}
+
+
+OVERALL:  i need to slow down and not rush 

@@ -1,0 +1,53 @@
+body{
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family:'Courier New', Courier, monospace;
+    padding: 50px;
+    
+}
+
+div{
+    background-color: violet; 
+    padding: 20px;
+    margin: 10px;
+    width:70%;
+    max-width: 900px;
+    text-align: center;
+}
+
+h1{
+    color: rgb(88, 50, 124);
+    font-size: 60px;
+    
+}
+
+#score{
+    padding: 10px;
+    background-color: rgb(253, 141, 141);
+    width: 40%;
+}
+
+#container{
+    display: flex;
+    gap:10px;
+}
+
+button{
+    flex:1;
+    height: 100px;
+    
+    background-color: rgb(241, 72, 145);
+    border-style: none;
+    color:rgb(64, 34, 92);
+    font-size: 30px;
+}
+
+#Result{
+    font-size:30px;
+}
+
+#won{
+    font-size: 50px;
+}
